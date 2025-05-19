@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap | Tool Forge - Web Development Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #ec4899;
+            --secondary-color: #a855f7;
+            --accent-color: #d946ef;
+            --light-color: #fdf2f8;
+            --dark-color: #1e1b4b;
+            --gray-color: #6b7280;
+            --success-color: #10b981;
+            --font-main: 'Poppins', sans-serif;
+            --font-cute: 'Quicksand', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+            --rounded-sm: 12px;
+            --rounded-md: 16px;
+            --rounded-lg: 24px;
+            --rounded-full: 9999px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Light mode defaults */
+            --bg-color: #faf5ff;
+            --text-color: #1e1b4b;
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+            --footer-bg: #1e1b4b;
+            --border-color: rgba(236, 72, 153, 0.1);
+            --ad-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f0e2e;
+            --text-color: #f5f3ff;
+            --card-bg: #1e1b4b;
+            --header-bg: #1e1b4b;
+            --footer-bg: #0f0e2e;
+            --border-color: rgba(216, 70, 239, 0.2);
+            --light-color: #1e1b4b;
+            --dark-color: #f5f3ff;
+            --ad-bg: #1e1b4b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 20%);
+            transition: var(--transition);
+        }
+
+        /* Ad Containers */
+        .ad-container {
+            background-color: var(--ad-bg);
+            border-radius: var(--rounded-md);
+            padding: 1rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ad-container.horizontal {
+            grid-column: 1 / -1;
+        }
+
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-main);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 100;
+        }
+
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: var(--rounded-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            font-family: var(--font-cute);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .back-button a:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        }
+
+        .back-button i {
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--rounded-full);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: transparent;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-family: var(--font-cute);
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 5% 4rem;
+        }
+
+        .sitemap-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .sitemap-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-cute);
+            font-weight: 700;
+            color: transparent;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .sitemap-header p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: var(--font-cute);
+            font-weight: 500;
+        }
+
+        .sitemap-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .sitemap-category {
+            background-color: var(--card-bg);
+            border-radius: var(--rounded-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sitemap-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .sitemap-category.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sitemap-category:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sitemap-category h2 {
+            color: var(--text-color);
+            margin-bottom: 1.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+            font-family: var(--font-cute);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .sitemap-category h2 i {
+            color: var(--accent-color);
+            background: rgba(216, 70, 239, 0.1);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .sitemap-links {
+            list-style: none;
+        }
+
+        .sitemap-links li {
+            margin-bottom: 1rem;
+        }
+
+        .sitemap-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            padding: 0.8rem 1rem;
+            border-radius: var(--rounded-sm);
+            background: rgba(236, 72, 153, 0.03);
+            font-weight: 500;
+        }
+
+        .sitemap-links a:hover {
+            color: var(--primary-color);
+            background: rgba(236, 72, 153, 0.1);
+            transform: translateX(8px);
+        }
+
+        .sitemap-links a i {
+            color: var(--accent-color);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(216, 70, 239, 0.1);
+            border-radius: 6px;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .sitemap-links a:hover i {
+            background: rgba(216, 70, 239, 0.2);
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 5% 2.5rem;
+            margin-top: 4rem;
+            position: relative;
+            clip-path: polygon(0 20px, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        footer p {
+            margin-bottom: 1.5rem;
+            font-family: var(--font-cute);
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: var(--font-cute);
+            font-weight: 500;
+            opacity: 0.8;
+            padding: 0.5rem 1rem;
+            border-radius: var(--rounded-sm);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Floating decorative elements */
+        .floating-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.2;
+            z-index: -1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary-color);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, 20px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        @media (max-width: 1200px) {
+            .sitemap-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                margin-top: 6rem;
+                font-size: 2rem;
+            }
+            
+            .sitemap-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .sitemap-header p {
+                font-size: 1.1rem;
+            }
+            
+            .back-button a {
+                padding: 0.6rem 1.2rem;
+            }
+            
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                margin-top: 5rem;
+                font-size: 1.8rem;
+            }
+            
+            .sitemap-header h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            
+            .sitemap-header p {
+                font-size: 1rem;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-button a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating decorative orbs -->
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+
+    <div class="back-button">
+        <a href="Tool Forge.html"><i class="fas fa-arrow-left"></i> </a>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="logo">Tool<span>Forge</span></div>
+
+    <div class="container">
+        <div class="sitemap-header">
+            <h1>Website Sitemap</h1>
+            <p>Explore all the pages and tools available on Tool Forge</p>
+        </div>
+
+        <!-- Top Horizontal Ad -->
+        <div class="ad-container horizontal">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense ad unit -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_TOP_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="sitemap-grid">
+            <div class="sitemap-category">
+                <h2><i class="fas fa-home"></i> Main Pages</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="/about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="/contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="/privacy"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="/terms"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="sitemap-category">
+                <h2><i class="fas fa-tools"></i> Development Tools</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/tools/html"><i class="fas fa-chevron-right"></i> HTML Tools</a></li>
+                    <li><a href="/tools/css"><i class="fas fa-chevron-right"></i> CSS Tools</a></li>
+                    <li><a href="/tools/javascript"><i class="fas fa-chevron-right"></i> JavaScript Tools</a></li>
+                    <li><a href="/tools/json"><i class="fas fa-chevron-right"></i> JSON Tools</a></li>
+                    <li><a href="/tools/color"><i class="fas fa-chevron-right"></i> Color Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="sitemap-category">
+                <h2><i class="fas fa-code"></i> Code Utilities</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/tools/validator"><i class="fas fa-chevron-right"></i> Code Validator</a></li>
+                    <li><a href="/tools/formatter"><i class="fas fa-chevron-right"></i> Code Formatter</a></li>
+                    <li><a href="/tools/converter"><i class="fas fa-chevron-right"></i> Code Converter</a></li>
+                    <li><a href="/tools/minifier"><i class="fas fa-chevron-right"></i> Code Minifier</a></li>
+                    <li><a href="/tools/encoder"><i class="fas fa-chevron-right"></i> Text Encoder/Decoder</a></li>
+                </ul>
+            </div>
+
+            <div class="sitemap-category">
+                <h2><i class="fas fa-shield-alt"></i> Security Tools</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/tools/password"><i class="fas fa-chevron-right"></i> Password Generator</a></li>
+                    <li><a href="/tools/hash"><i class="fas fa-chevron-right"></i> Hash Generator</a></li>
+                    <li><a href="/tools/encryption"><i class="fas fa-chevron-right"></i> Encryption Tools</a></li>
+                    <li><a href="/tools/jwt"><i class="fas fa-chevron-right"></i> JWT Decoder</a></li>
+                    <li><a href="/tools/ssl"><i class="fas fa-chevron-right"></i> SSL Checker</a></li>
+                </ul>
+            </div>
+
+            <div class="sitemap-category">
+                <h2><i class="fas fa-network-wired"></i> Network Tools</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/tools/ip"><i class="fas fa-chevron-right"></i> IP Lookup</a></li>
+                    <li><a href="/tools/whois"><i class="fas fa-chevron-right"></i> WHOIS Lookup</a></li>
+                    <li><a href="/tools/dns"><i class="fas fa-chevron-right"></i> DNS Lookup</a></li>
+                    <li><a href="/tools/ping"><i class="fas fa-chevron-right"></i> Ping Tool</a></li>
+                    <li><a href="/tools/traceroute"><i class="fas fa-chevron-right"></i> Traceroute</a></li>
+                </ul>
+            </div>
+
+            <div class="sitemap-category">
+                <h2><i class="fas fa-database"></i> Data Tools</h2>
+                <ul class="sitemap-links">
+                    <li><a href="/tools/sql"><i class="fas fa-chevron-right"></i> SQL Formatter</a></li>
+                    <li><a href="/tools/xml"><i class="fas fa-chevron-right"></i> XML Tools</a></li>
+                    <li><a href="/tools/csv"><i class="fas fa-chevron-right"></i> CSV Tools</a></li>
+                    <li><a href="/tools/base64"><i class="fas fa-chevron-right"></i> Base64 Converter</a></li>
+                    <li><a href="/tools/qrcode"><i class="fas fa-chevron-right"></i> QR Code Generator</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Horizontal Ad -->
+        <div class="ad-container horizontal">
+            <div class="ad-label">Sponsored</div>
+            <!-- Replace with your AdSense ad unit -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_BOTTOM_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Tool Forge. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="Privacy Policy.html">Privacy</a>
+            <a href="Terms of Use.html">Terms</a>
+            <a href="Contect Us.html">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference or use preferred color scheme
+            const savedTheme = localStorage.getItem('theme') || 
+                               (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Update icon based on current theme
+            if (savedTheme === 'dark') {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'dark') {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                } else {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                }
+            });
+            
+            // Animate sitemap cards on scroll
+            const sitemapCards = document.querySelectorAll('.sitemap-category');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            sitemapCards.forEach((card, index) => {
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Initialize all AdSense ads
+            const adContainers = document.querySelectorAll('.adsbygoogle');
+            adContainers.forEach(container => {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            });
+        });
+    </script>
+</body>
+</html>

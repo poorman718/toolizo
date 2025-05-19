@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | Tool Forge</title>
+    <!-- Google AdSense (REPLACE WITH YOUR SCRIPT) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8A84FF;
+            --secondary: #FF6584;
+            --text: #2D3748;
+            --text-light: #718096;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --footer-bg: #F1F1F1;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --text: #E2E8F0;
+            --text-light: #A0AEC0;
+            --bg: #1A202C;
+            --card-bg: #2D3748;
+            --footer-bg: #1A202C;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.6rem 0.6rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        /* Ad Containers */
+        .ad-container {
+            margin: 2rem 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .ad-placeholder {
+            background: linear-gradient(45deg, rgba(108, 99, 255, 0.1), rgba(255, 101, 132, 0.1));
+            padding: 2rem;
+            border-radius: 4px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .terms-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: var(--transition);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            padding: 2rem 0;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+
+        /* Responsive Ads */
+        .ad-responsive {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .terms-card {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .back-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .terms-card {
+                padding: 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Ad (Leaderboard) -->
+    <div class="ad-container">
+        <!-- AdSense Ad Unit (REPLACE WITH YOUR AD UNIT) -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_LEADERBOARD_SLOT"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- Fallback Placeholder -->
+        <div class="ad-placeholder" style="display: none;">
+            Advertisement (Leaderboard)
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Terms of Use</a>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="Tool Forge.html" class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i> 
+                </a>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="terms-card">
+                <p class="last-updated">Last updated: <span id="currentDate"></span></p>
+
+                <p>Welcome to <strong>Tool Forge</strong>! These Terms of Use govern your use of our website and tools. By accessing or using our services, you agree to be bound by these terms.</p>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By using Tool Forge, you agree to these Terms of Use and our <a href="Privacy Policy.html">Privacy Policy</a>. If you don't agree, please don't use our services.</p>
+
+                <!-- Mid-Page Ad (Rectangle) -->
+                <div class="ad-container">
+                    <!-- AdSense Ad Unit (REPLACE WITH YOUR AD UNIT) -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                         data-ad-slot="YOUR_RECTANGLE_SLOT"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <!-- Fallback Placeholder -->
+                    <div class="ad-placeholder" style="display: none;">
+                        Advertisement (Content Rectangle)
+                    </div>
+                </div>
+
+                <h2>2. Description of Service</h2>
+                <p>Tool Forge provides powerful online tools to help you [describe your tool's purpose]. We reserve the right to modify or discontinue the service at any time without notice.</p>
+
+                <h2>3. User Responsibilities</h2>
+                <ul>
+                    <li>You must be at least 13 years old to use this service.</li>
+                    <li>You are responsible for maintaining the confidentiality of your account.</li>
+                    <li>You agree not to use the service for any illegal or unauthorized purpose.</li>
+                    <li>You must not transmit any viruses or malicious code.</li>
+                    <li>Do not overload our servers with excessive requests.</li>
+                </ul>
+
+                <h2>4. Intellectual Property</h2>
+                <p>All content and functionality on Tool Forge, including text, graphics, logos, and software, is the property of Tool Forge or its licensors and is protected by copyright laws.</p>
+
+                <h2>5. Limitation of Liability</h2>
+                <p>Tool Forge will not be liable for any indirect, incidental, special, or consequential damages resulting from your use of or inability to use the service.</p>
+
+                <h2>6. Changes to Terms</h2>
+                <p>We may update these Terms of Use from time to time. We will notify users of significant changes, but we encourage you to review these terms periodically.</p>
+
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about these Terms, please contact us at <a href="Contect Us.html">Contect Us</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Ad (Banner) -->
+    <div class="ad-container">
+        <!-- AdSense Ad Unit (REPLACE WITH YOUR AD UNIT) -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_BANNER_SLOT"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- Fallback Placeholder -->
+        <div class="ad-placeholder" style="display: none;">
+            Advertisement (Footer Banner)
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="Tool Forge.html">Home</a>
+                <a href="Privacy Policy.html">Privacy Policy</a>
+                <a href="Contect Us.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Tool Forge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current year and date
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+
+        // Back button functionality
+        document.getElementById('backBtn').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate sections on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.terms-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // ===== DARK/LIGHT MODE TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved user preference or use system preference
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Set initial icon
+        if (savedTheme === 'dark') {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            // Update theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update icon
+            if (newTheme === 'dark') {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // ===== AD PLACEHOLDER FALLBACK =====
+        document.addEventListener('DOMContentLoaded', () => {
+            const adContainers = document.querySelectorAll('.ad-container');
+            
+            // Show placeholder if AdSense fails to load
+            setTimeout(() => {
+                adContainers.forEach(container => {
+                    const ad = container.querySelector('ins.adsbygoogle');
+                    if (!ad || !ad.innerHTML.trim()) {
+                        const placeholder = container.querySelector('.ad-placeholder');
+                        placeholder.style.display = 'block';
+                    }
+                });
+            }, 3000); // Check after 3 seconds
+        });
+    </script>
+</body>
+</html>
